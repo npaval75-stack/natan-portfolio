@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="n1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a323c"/>
+      <stop offset="45%" stop-color="#3a4652"/>
+      <stop offset="100%" stop-color="#1c2228"/>
+    </linearGradient>
+    <linearGradient id="haze" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#6a7a86" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#6a7a86" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#n1)"/>
+  <rect x="180" y="380" width="70" height="420" fill="#4a5560"/>
+  <rect x="280" y="300" width="110" height="500" fill="#3e4852"/>
+  <rect x="430" y="340" width="80" height="460" fill="#505c66"/>
+  <rect x="560" y="250" width="160" height="550" fill="#364048"/>
+  <rect x="760" y="310" width="90" height="490" fill="#46525c"/>
+  <rect x="900" y="220" width="200" height="580" fill="#323c46"/>
+  <rect x="1140" y="360" width="120" height="440" fill="#4c5862"/>
+  <rect x="1300" y="280" width="160" height="520" fill="#3a444e"/>
+  <rect y="780" width="1600" height="220" fill="url(#haze)"/>
+  <rect y="840" width="1600" height="160" fill="#1a1e22" opacity="0.55"/>
+  <rect x="640" y="430" width="8" height="40" fill="#b7c9d2" opacity="0.7"/>
+  <rect x="980" y="360" width="6" height="28" fill="#c5d4dc" opacity="0.55"/>
+</svg>

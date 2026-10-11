@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 72">
+  <!-- Replace via src/data/assets.ts → menuInsignia -->
+  <path fill="#e8ecef" d="M6 6h16v60H6zM42 6h16v60H42z"/>
+  <path fill="#b4bcc2" d="M18 6h16L46 66H30z"/>
+</svg>

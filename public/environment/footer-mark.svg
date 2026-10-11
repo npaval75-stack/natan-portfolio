@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+  <!-- Replace via src/data/assets.ts ’ footerMark -->
+  <path d="M18 2 L33 10.5 V25.5 L18 34 L3 25.5 V10.5 Z" fill="none" stroke="#c9d0d5" stroke-width="1.4"/>
+  <path d="M13 11 H18 L24 25 H19 L13 11 Z" fill="#d7dde2"/>
+  <path d="M13 25 V11 H16.2 V20 Z" fill="#d7dde2"/>
+</svg>

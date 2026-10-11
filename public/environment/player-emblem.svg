@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Replace via src/data/assets.ts → playerEmblem -->
+  <rect width="64" height="64" fill="#16191c"/>
+  <path d="M18 12 H32 L50 52 H36 L18 12 Z" fill="#d5dce0"/>
+  <path d="M18 52 V12 H28 V36 Z" fill="#d5dce0"/>
+</svg>

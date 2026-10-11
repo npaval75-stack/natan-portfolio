@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <!-- Temporary menu background. Replace this file (or the path in src/data/assets.ts) with your artwork. -->
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="0.15">
+      <stop offset="0%" stop-color="#0c0e11"/>
+      <stop offset="48%" stop-color="#161b20"/>
+      <stop offset="100%" stop-color="#2a333b"/>
+    </linearGradient>
+    <linearGradient id="lift" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#050607"/>
+      <stop offset="55%" stop-color="#050607" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#field)"/>
+  <rect width="1920" height="1080" fill="url(#lift)"/>
+</svg>
