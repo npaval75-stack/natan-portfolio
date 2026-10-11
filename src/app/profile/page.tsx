@@ -23,7 +23,7 @@ export default function ProfilePage() {
         </Link>
 
         <p className="hud-label mt-14">DESIGNER // PROFILE</p>
-        <h1 className="font-display mt-3 text-4xl tracking-[0.14em] text-white md:text-5xl">
+        <h1 className="font-display mt-3 text-[1.85rem] tracking-[0.14em] text-white sm:text-4xl lg:text-5xl">
           NATAN PAVAL
         </h1>
         <p className="interface-label mt-3 font-display text-sm tracking-[0.2em]">

@@ -23,14 +23,14 @@ export function ProjectBrief({ project }: ProjectBriefProps) {
 
     if (sameProject && sameCopy) return;
 
-    if (sameProject) {
-      setVisible(project);
-      setPhase("in");
-      return;
-    }
-
     let timer = 0;
     const frame = window.requestAnimationFrame(() => {
+      if (sameProject) {
+        setVisible(project);
+        setPhase("in");
+        return;
+      }
+
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (reduced) {
         setVisible(project);

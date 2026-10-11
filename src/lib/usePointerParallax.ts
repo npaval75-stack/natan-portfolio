@@ -8,7 +8,8 @@ export function usePointerParallax(rootRef: RefObject<HTMLElement | null>) {
     if (!root) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduced.matches) return;
+    const coarse = window.matchMedia("(pointer: coarse)");
+    if (reduced.matches || coarse.matches) return;
 
     let targetX = 0.5;
     let targetY = 0.5;

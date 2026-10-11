@@ -11,6 +11,9 @@ export const assets = {
   // REPLACE THIS with your full-screen menu artwork, e.g. "/environment/menu-background.jpg"
   menuBackground: "/environment/menu-background%20(2).png",
 
+  // Phone homepage only. Desktop continues to use menuBackground.
+  mobileMenuBackground: "/environment/mobile-logo-menu-background.png",
+
   // REPLACE THIS with your personal emblem / avatar, e.g. "/environment/player-emblem.png"
   playerEmblem: "/environment/player-emblem.svg",
 

@@ -33,7 +33,7 @@ export function MenuAtmosphere({
   return (
     <div
       ref={rootRef}
-      className={`pointer-events-none absolute inset-0 z-0 overflow-hidden ${
+      className={`menu-atmosphere pointer-events-none absolute inset-0 z-0 overflow-hidden ${
         menuFocus ? "is-menu-focus" : ""
       } ${opening ? "is-opening" : ""}`}
       aria-hidden

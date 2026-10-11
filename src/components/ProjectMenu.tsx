@@ -13,8 +13,6 @@ type ProjectMenuProps = {
   onOpen: (href: string) => void;
 };
 
-const ROW_HEIGHT = 36;
-
 export function ProjectMenu({
   projects,
   activeId,
@@ -25,9 +23,10 @@ export function ProjectMenu({
   const navRef = useRef<HTMLElement>(null);
   const rowRefs = useRef<Record<string, HTMLElement | null>>({});
   const contentRefs = useRef<Record<string, HTMLSpanElement | null>>({});
-  const [bar, setBar] = useState<{ y: number; width: number | null }>({
+  const [bar, setBar] = useState<{ y: number; width: number | null; height: number }>({
     y: 0,
     width: null,
+    height: 36,
   });
 
   useLayoutEffect(() => {
@@ -36,9 +35,14 @@ export function ProjectMenu({
       const content = contentRefs.current[activeId];
       const nav = navRef.current;
       if (!row || !content || !nav) return;
+      const rowBox = row.getBoundingClientRect();
+      const navBox = nav.getBoundingClientRect();
+      const compact = window.matchMedia("(max-width: 1023px)").matches;
+      const wrapped = content.offsetHeight > 40;
       setBar({
-        y: row.getBoundingClientRect().top - nav.getBoundingClientRect().top,
-        width: content.offsetWidth,
+        y: rowBox.top - navBox.top,
+        width: compact ? nav.clientWidth : wrapped ? row.offsetWidth : content.offsetWidth,
+        height: row.offsetHeight,
       });
     };
 
@@ -63,14 +67,14 @@ export function ProjectMenu({
   const animationsActive = activeId === ANIMATIONS_ID;
 
   return (
-    <nav ref={navRef} aria-label="Portfolio projects" className="relative mt-7 overflow-visible">
+    <nav ref={navRef} aria-label="Portfolio projects" className="project-menu relative mt-4 overflow-visible lg:mt-7">
       <span
         className={`menu-select-bar pointer-events-none absolute left-0 z-0 origin-left ${
           opening ? "is-opening" : ""
         }`}
         style={{
           top: 0,
-          height: ROW_HEIGHT,
+          height: bar.height,
           transform: `translateY(${bar.y}px)`,
           ...(bar.width != null && !opening ? { width: bar.width } : {}),
         }}
@@ -80,7 +84,7 @@ export function ProjectMenu({
         className="menu-select-tick pointer-events-none absolute left-0 z-0 w-[2px] bg-[var(--accent)]"
         style={{
           top: 0,
-          height: ROW_HEIGHT,
+          height: bar.height,
           transform: `translateY(${bar.y}px)`,
         }}
         aria-hidden
@@ -89,9 +93,10 @@ export function ProjectMenu({
       <ul className="relative z-10">
         {projects.map((project) => {
           const active = project.id === activeId;
+          const href = `/projects/${project.slug}`;
 
           return (
-            <li key={project.id} style={{ height: ROW_HEIGHT }}>
+            <li key={project.id} className="menu-row">
               <div
                 ref={(node) => {
                   rowRefs.current[project.id] = node;
@@ -99,16 +104,16 @@ export function ProjectMenu({
                 className="h-full"
               >
               <Link
-                href={`/projects/${project.slug}`}
+                href={href}
                 onMouseEnter={() => onSelect(project.id)}
                 onFocus={() => onSelect(project.id)}
                 onClick={(event) => {
                   event.preventDefault();
                   onSelect(project.id);
-                  onOpen(`/projects/${project.slug}`);
+                  onOpen(href);
                 }}
                 aria-current={active ? "true" : undefined}
-                className={`flex h-full w-full items-center text-left transition-opacity duration-200 ${
+                className={`menu-row-link flex h-full w-full items-center text-left transition-opacity duration-200 ${
                   opening && !active ? "opacity-25" : "opacity-100"
                 }`}
               >
@@ -116,17 +121,17 @@ export function ProjectMenu({
                   ref={(node) => {
                     contentRefs.current[project.id] = node;
                   }}
-                  className="inline-flex h-full w-fit items-center gap-6 pr-3 pl-4"
+                  className="menu-row-content inline-flex h-full w-fit max-w-full items-center gap-6 pr-3 pl-4"
                 >
                   <span
-                    className={`menu-item-index w-6 font-display text-[0.72rem] tracking-[0.16em] transition-colors duration-[220ms] ease-out ${
+                    className={`menu-item-index w-6 shrink-0 font-display text-[0.72rem] tracking-[0.16em] transition-colors duration-[220ms] ease-out ${
                       active ? "is-active" : ""
                     }`}
                   >
                     {project.number}
                   </span>
                   <span
-                    className={`font-display text-[0.92rem] uppercase tracking-[0.16em] transition-colors duration-[220ms] ease-out md:text-[1.02rem] ${
+                    className={`menu-item-title font-display text-[0.92rem] uppercase tracking-[0.16em] transition-colors duration-[220ms] ease-out md:text-[1.02rem] ${
                       active
                         ? "font-semibold text-[var(--foreground)]"
                         : "menu-item-title-idle font-medium"
@@ -147,6 +152,7 @@ export function ProjectMenu({
             ref={(node) => {
               rowRefs.current[ANIMATIONS_ID] = node;
             }}
+            className="menu-row"
           >
           <Link
             href={ANIMATIONS_HREF}
@@ -158,19 +164,18 @@ export function ProjectMenu({
               onOpen(ANIMATIONS_HREF);
             }}
             aria-current={animationsActive ? "true" : undefined}
-            className={`flex items-center text-left transition-opacity duration-200 ${
+            className={`menu-row-link flex items-center text-left transition-opacity duration-200 ${
               opening && !animationsActive ? "opacity-25" : "opacity-100"
             }`}
-            style={{ height: ROW_HEIGHT }}
           >
             <span
               ref={(node) => {
                 contentRefs.current[ANIMATIONS_ID] = node;
               }}
-              className="inline-flex h-full w-fit items-center gap-6 pr-3 pl-4"
+              className="menu-row-content inline-flex h-full w-fit max-w-full items-center gap-6 pr-3 pl-4"
             >
               <span
-                className={`menu-item-index menu-play-mark w-6 transition-colors duration-[220ms] ease-out ${
+                className={`menu-item-index menu-play-mark w-6 shrink-0 transition-colors duration-[220ms] ease-out ${
                   animationsActive ? "is-active" : ""
                 }`}
                 aria-hidden
@@ -180,7 +185,7 @@ export function ProjectMenu({
                 </svg>
               </span>
               <span
-                className={`font-display text-[0.92rem] uppercase tracking-[0.16em] transition-colors duration-[220ms] ease-out md:text-[1.02rem] ${
+                className={`menu-item-title font-display text-[0.92rem] uppercase tracking-[0.16em] transition-colors duration-[220ms] ease-out md:text-[1.02rem] ${
                   animationsActive
                     ? "font-semibold text-[var(--foreground)]"
                     : "menu-item-title-idle font-medium"

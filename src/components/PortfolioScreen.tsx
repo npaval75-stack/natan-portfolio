@@ -5,6 +5,7 @@ import { CommandBar } from "@/components/CommandBar";
 import { LobbyPanel } from "@/components/LobbyPanel";
 import { MenuAtmosphere } from "@/components/MenuAtmosphere";
 import { MenuTitle } from "@/components/MenuTitle";
+import { MobileHome } from "@/components/MobileHome";
 import { ProjectBrief } from "@/components/ProjectBrief";
 import { ProjectMenu } from "@/components/ProjectMenu";
 import { ProjectPreview } from "@/components/ProjectPreview";
@@ -81,6 +82,7 @@ export function PortfolioScreen() {
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
+      if (window.matchMedia("(max-width: 767px)").matches) return;
       if (event.key === "ArrowDown") {
         event.preventDefault();
         setMenuFocus(true);
@@ -108,14 +110,18 @@ export function PortfolioScreen() {
   }, [activeIndex, openHref]);
 
   return (
-    <div className={`relative min-h-dvh lg:h-dvh lg:overflow-hidden ${idle ? "is-idle" : ""}`}>
+    <div className={`home-screen relative min-h-dvh lg:h-dvh lg:overflow-hidden ${idle ? "is-idle" : ""}`}>
       <MenuAtmosphere
         pulseKey={activeId}
         menuFocus={menuFocus}
         opening={opening}
       />
 
-      <div className="pointer-events-none relative z-10 flex justify-end px-5 pt-6 md:px-8 lg:absolute lg:top-[5.5%] lg:right-[4.2vw] lg:px-0 lg:pt-0 xl:bottom-[11.5%] xl:flex-col xl:items-end">
+      <div className="md:hidden">
+        <MobileHome onOpen={openHref} />
+      </div>
+
+      <div className="home-hud pointer-events-none relative z-10 hidden justify-end px-5 pt-6 md:flex md:px-8 lg:absolute lg:top-[5.5%] lg:right-[4.2vw] lg:px-0 lg:pt-0 xl:bottom-[11.5%] xl:flex-col xl:items-end">
         <div className="pointer-events-auto">
           <LobbyPanel />
         </div>
@@ -123,22 +129,24 @@ export function PortfolioScreen() {
       </div>
 
       <div
-        className="relative z-10 px-5 pt-8 md:px-8 lg:absolute lg:left-[6.5vw] lg:top-[11%] lg:w-[min(34rem,38vw)] lg:overflow-visible lg:px-0 lg:pt-0"
+        className="home-hud pointer-events-none relative z-10 hidden px-5 pt-8 md:block md:px-8 lg:pointer-events-auto lg:absolute lg:left-[6.5vw] lg:top-[11%] lg:w-[min(34rem,38vw)] lg:overflow-visible lg:px-0 lg:pt-0"
         onMouseEnter={() => setMenuFocus(true)}
         onMouseLeave={() => setMenuFocus(false)}
       >
-        <MenuTitle />
-        <ProjectMenu
-          projects={projects}
-          activeId={activeId}
-          opening={opening}
-          onSelect={selectById}
-          onOpen={openHref}
-        />
-        <ProjectBrief project={activeProject} />
+        <div className="pointer-events-auto">
+          <MenuTitle />
+          <ProjectMenu
+            projects={projects}
+            activeId={activeId}
+            opening={opening}
+            onSelect={selectById}
+            onOpen={openHref}
+          />
+          <ProjectBrief project={activeProject} />
+        </div>
       </div>
 
-      <div className="relative z-10 px-5 py-7 md:px-8 lg:absolute lg:inset-x-[4.2vw] lg:bottom-5 lg:px-0 lg:py-0">
+      <div className="home-hud relative z-10 hidden px-5 py-7 md:block md:px-8 lg:absolute lg:inset-x-[4.2vw] lg:bottom-5 lg:px-0 lg:py-0">
         <CommandBar />
       </div>
     </div>
