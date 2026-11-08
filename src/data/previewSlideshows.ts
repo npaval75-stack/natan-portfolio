@@ -4,7 +4,7 @@ export const PREVIEW_HOLD_MS = 3000;
 export const PREVIEW_CROSSFADE_MS = 520;
 
 const ZTD = "/projects/menu-previews/zero-to-design";
-const GW = "/projects/menu-previews/global-warming";
+const MOTINN = "/projects/menu-previews/motinn";
 const CC = "/projects/menu-previews/climate-change";
 const MP = "/projects/menu-previews/melting-earth-sculpture";
 const FGV = "/projects/menu-previews/fundamentals-of-graphic-visualization";
@@ -21,13 +21,11 @@ export const previewSlideshows: Record<string, readonly string[]> = {
     `${ZTD}/page-07.webp`,
     `${ZTD}/page-08.webp`,
   ],
-  "global-warming-brochure": [
-    `${GW}/page-01.webp`,
-    `${GW}/page-02.webp`,
-    `${GW}/page-04.webp`,
-    `${GW}/page-05.webp`,
-    `${GW}/page-06.webp`,
-    `${GW}/page-07.webp`,
+  "motinn-package-design": [
+    `${MOTINN}/page-01.webp`,
+    `${MOTINN}/page-02.webp`,
+    `${MOTINN}/page-03.webp`,
+    `${MOTINN}/page-04.webp`,
   ],
   "act-for-tomorrow-poster-series": [
     `${CC}/page-01.webp`,

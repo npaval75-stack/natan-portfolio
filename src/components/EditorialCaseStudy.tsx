@@ -14,6 +14,8 @@ export type CaseArtwork = {
   width?: number;
   height?: number;
   caption?: string;
+  loading?: "lazy" | "eager";
+  fetchPriority?: "high" | "low" | "auto";
 };
 
 export type CaseIndexItem = {
@@ -38,6 +40,7 @@ export type CaseBlock =
 type EditorialCaseStudyProps = {
   brief: readonly CaseBrief[];
   blocks: CaseBlock[];
+  className?: string;
   onStudyArtworkSelect?: (studyId: string, index: number) => void;
 };
 
@@ -82,17 +85,25 @@ function ArtworkCaption({ caption }: { caption?: string }) {
   return <figcaption className="ztd-art-caption">{caption}</figcaption>;
 }
 
-function Artwork({ src, alt, width, height, caption }: CaseArtwork) {
+function Artwork({ src, alt, width, height, caption, loading, fetchPriority }: CaseArtwork) {
   return (
     <figure>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={alt} decoding="async" width={width} height={height} />
+      <img
+        src={src}
+        alt={alt}
+        decoding="async"
+        width={width}
+        height={height}
+        loading={loading}
+        fetchPriority={fetchPriority}
+      />
       <ArtworkCaption caption={caption} />
     </figure>
   );
 }
 
-export function EditorialCaseStudy({ brief, blocks, onStudyArtworkSelect }: EditorialCaseStudyProps) {
+export function EditorialCaseStudy({ brief, blocks, className, onStudyArtworkSelect }: EditorialCaseStudyProps) {
   useEffect(() => {
     const id = window.location.hash.replace(/^#/, "");
     if (!id) return;
@@ -100,18 +111,20 @@ export function EditorialCaseStudy({ brief, blocks, onStudyArtworkSelect }: Edit
   }, []);
 
   return (
-    <div className="ztd-case">
+    <div className={`ztd-case${className ? ` ${className}` : ""}`}>
       <div className="ztd-frame ztd-canvas">
-        <div className="ztd-brief">
-          <div className="ztd-brief-grid">
-            {brief.map((item) => (
-              <section key={item.label} className="ztd-brief-item">
-                <h2 className="ztd-brief-heading">{item.label}</h2>
-                <p className="ztd-brief-copy">{item.copy}</p>
-              </section>
-            ))}
+        {brief.length > 0 ? (
+          <div className="ztd-brief">
+            <div className="ztd-brief-grid">
+              {brief.map((item) => (
+                <section key={item.label} className="ztd-brief-item">
+                  <h2 className="ztd-brief-heading">{item.label}</h2>
+                  <p className="ztd-brief-copy">{item.copy}</p>
+                </section>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : null}
 
         {blocks.map((block, index) => {
           if (block.type === "index") {
@@ -266,7 +279,14 @@ export function EditorialCaseStudy({ brief, blocks, onStudyArtworkSelect }: Edit
                 </div>
               </figure>
             ) : (
-              <Artwork src={block.item.src} alt={block.item.alt} width={block.item.width} height={block.item.height} />
+              <Artwork
+                src={block.item.src}
+                alt={block.item.alt}
+                width={block.item.width}
+                height={block.item.height}
+                loading={block.item.loading}
+                fetchPriority={block.item.fetchPriority}
+              />
             );
 
           if (index === 0) {

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { ANIMATIONS_HREF } from "@/data/animations";
 import { projects } from "@/data/projects";
 
-const origin = "https://natanpaval.dev";
+const origin = "https://www.natanpaval.dev";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

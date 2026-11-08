@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://natanpaval.dev/sitemap.xml",
-    host: "https://natanpaval.dev",
+    sitemap: "https://www.natanpaval.dev/sitemap.xml",
+    host: "https://www.natanpaval.dev",
   };
 }

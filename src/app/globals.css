@@ -1487,6 +1487,42 @@ a.hud-label:focus-visible {
   }
 }
 
+.motinn-case .ztd-canvas > .ztd-showcase {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.motinn-case .ztd-canvas > .ztd-showcase:first-child,
+.motinn-case .ztd-canvas > .ztd-brief + .ztd-showcase {
+  padding-top: 1.25rem;
+}
+
+.motinn-case .ztd-canvas > .ztd-showcase:last-child {
+  padding-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .motinn-case .ztd-canvas > .ztd-showcase:first-child,
+  .motinn-case .ztd-canvas > .ztd-brief + .ztd-showcase {
+    padding-top: 2.25rem;
+  }
+
+  .motinn-case .ztd-canvas > .ztd-showcase:last-child {
+    padding-bottom: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .motinn-case .ztd-canvas > .ztd-showcase:first-child,
+  .motinn-case .ztd-canvas > .ztd-brief + .ztd-showcase {
+    padding-top: 3.25rem;
+  }
+
+  .motinn-case .ztd-canvas > .ztd-showcase:last-child {
+    padding-bottom: 3.25rem;
+  }
+}
+
 .fgv-lightbox {
   position: fixed;
   inset: 0;

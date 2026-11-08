@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { ActForTomorrowCaseStudy } from "@/components/ActForTomorrowCaseStudy";
 import { FundamentalsCaseStudy } from "@/components/FundamentalsCaseStudy";
-import { GlobalWarmingCaseStudy } from "@/components/GlobalWarmingCaseStudy";
+import { MotinnCaseStudy } from "@/components/MotinnCaseStudy";
 import { MeltingPointCaseStudy } from "@/components/MeltingPointCaseStudy";
 import { MockAndProperCaseStudy } from "@/components/MockAndProperCaseStudy";
 import { ProjectView } from "@/components/ProjectView";
@@ -41,15 +41,15 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     );
   }
 
-  if (project.slug === "global-warming-brochure") {
+  if (project.slug === "motinn-package-design") {
     return (
       <ProjectView
         project={project}
-        subtitle="Awareness Campaign / Editorial Design / Print Design"
+        subtitle="Packaging Design"
         hideSummary
         framed
       >
-        <GlobalWarmingCaseStudy />
+        <MotinnCaseStudy />
       </ProjectView>
     );
   }

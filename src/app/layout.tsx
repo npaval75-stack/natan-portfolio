@@ -25,7 +25,7 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://natanpaval.dev"),
+  metadataBase: new URL("https://www.natanpaval.dev"),
   title: "Natanael Paval — Portfolio 2026",
   description:
     "Graphic design portfolio of Natanael Paval, covering branding, editorial, motion, and visual identity.",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://natanpaval.dev",
+    url: "https://www.natanpaval.dev",
     siteName: "Natanael Paval",
     title: "Natanael Paval — Graphic Design Portfolio",
     description:
