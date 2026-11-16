@@ -28,8 +28,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "zero-to-design-booklet",
+    id: "nemesis",
     number: "01",
+    title: "NEMESIS — STARTUP WEBSITE",
+    category: "Web Development",
+    year: "STARTUP WEBSITE",
+    slug: "nemesis",
+    summary:
+      "Startup marketing website for NEMESIS, a software firewall product. Built as web developer for the client, covering the live homepage, product pages, motion, and interface presentation.",
+    overview:
+      "NEMESIS is a startup website for a software firewall that reads shipped binaries and returns readable source, verdicts, and evidence. The work covers the marketing site as a static HTML, CSS, and JavaScript prototype.",
+    role: "Web Developer",
+    disciplines: ["Web Development", "Front-End Development"],
+    image: "/projects/nemesis/showcase-1.webp",
+    preview: "/projects/nemesis/showcase-1.webp",
+    gallery: [
+      "/projects/nemesis/live-home.webp",
+      "/projects/nemesis/showcase-3.webp",
+    ],
+  },
+  {
+    id: "zero-to-design-booklet",
+    number: "02",
     title: "ZERO TO DESIGN BOOKLET",
     category: "Graphic Design",
     year: "EDITORIAL DESIGN",
@@ -48,7 +68,7 @@ export const projects: Project[] = [
   },
   {
     id: "motinn-package-design",
-    number: "02",
+    number: "03",
     title: "MOTINN PACKAGE DESIGN",
     category: "Packaging Design",
     year: "PACKAGING DESIGN",
@@ -65,7 +85,7 @@ export const projects: Project[] = [
   },
   {
     id: "act-for-tomorrow-poster-series",
-    number: "03",
+    number: "04",
     title: "ACT FOR TOMORROW — POSTER SERIES",
     category: "Graphic Design / Poster Design / Environmental Awareness",
     year: "TBD",
@@ -90,7 +110,7 @@ export const projects: Project[] = [
   },
   {
     id: "the-melting-point-sculpture-concept",
-    number: "04",
+    number: "05",
     title: "THE MELTING POINT — SCULPTURE CONCEPT",
     category: "3D Design / Public Art Installation / Environmental Awareness",
     year: "TBD",
@@ -110,7 +130,7 @@ export const projects: Project[] = [
   },
   {
     id: "fundamentals-of-graphic-visualization",
-    number: "05",
+    number: "06",
     title: "FUNDAMENTALS OF GRAPHIC VISUALIZATION",
     category: "Graphic Design / Visual Studies / Composition",
     year: "TBD",
@@ -130,7 +150,7 @@ export const projects: Project[] = [
   },
   {
     id: "mock-and-proper-brand",
-    number: "06",
+    number: "07",
     title: "MOCK & PROPER — BRAND IDENTITY",
     category: "Branding / Visual Identity / Campaign Design",
     year: "GRAPHIC DESIGN",
@@ -150,7 +170,7 @@ export const projects: Project[] = [
   },
   {
     id: "pure-lief-brand",
-    number: "07",
+    number: "08",
     title: "PURE LIEF BRAND",
     category: "Brand Identity / Character Design",
     year: "GRAPHIC DESIGN",

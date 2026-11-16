@@ -1487,40 +1487,144 @@ a.hud-label:focus-visible {
   }
 }
 
-.motinn-case .ztd-canvas > .ztd-showcase {
+:is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-showcase {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.motinn-case .ztd-canvas > .ztd-showcase:first-child,
-.motinn-case .ztd-canvas > .ztd-brief + .ztd-showcase {
+:is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-showcase:first-child,
+:is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-brief + .ztd-showcase {
   padding-top: 1.25rem;
 }
 
-.motinn-case .ztd-canvas > .ztd-showcase:last-child {
+:is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-showcase:last-child {
   padding-bottom: 1.25rem;
 }
 
 @media (min-width: 768px) {
-  .motinn-case .ztd-canvas > .ztd-showcase:first-child,
-  .motinn-case .ztd-canvas > .ztd-brief + .ztd-showcase {
+  :is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-showcase:first-child,
+  :is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-brief + .ztd-showcase {
     padding-top: 2.25rem;
   }
 
-  .motinn-case .ztd-canvas > .ztd-showcase:last-child {
+  :is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-showcase:last-child {
     padding-bottom: 2.25rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .motinn-case .ztd-canvas > .ztd-showcase:first-child,
-  .motinn-case .ztd-canvas > .ztd-brief + .ztd-showcase {
+  :is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-showcase:first-child,
+  :is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-brief + .ztd-showcase {
     padding-top: 3.25rem;
   }
 
-  .motinn-case .ztd-canvas > .ztd-showcase:last-child {
+  :is(.motinn-case, .nemesis-case) .ztd-canvas > .ztd-showcase:last-child {
     padding-bottom: 3.25rem;
   }
+}
+
+.nemesis-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nemesis-app .ztd-brief-heading {
+  margin-bottom: 0.85rem;
+}
+
+.nemesis-app-copy {
+  max-width: 36rem;
+  margin: 0 auto 1.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.nemesis-phone {
+  width: min(100%, 22.5rem);
+}
+
+.nemesis-phone-shell {
+  position: relative;
+  padding: 0.7rem 0.62rem 0.78rem;
+  border-radius: 3.15rem;
+  background:
+    linear-gradient(165deg, #5c5c60 0%, #2c2c2e 28%, #121214 72%, #070708 100%);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.nemesis-phone-screen {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 430 / 932;
+  border-radius: 2.4rem;
+  background: #050608;
+}
+
+.nemesis-phone-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  background: #050608;
+}
+
+.nemesis-phone-island {
+  position: absolute;
+  z-index: 2;
+  top: 0.72rem;
+  left: 50%;
+  width: 7.1rem;
+  height: 1.72rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #000;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.nemesis-phone-btn {
+  position: absolute;
+  background: #1a1a1c;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.nemesis-phone-btn-silent {
+  top: 7.4rem;
+  left: -0.14rem;
+  width: 0.18rem;
+  height: 1.35rem;
+  border-radius: 2px 0 0 2px;
+}
+
+.nemesis-phone-btn-vol-up,
+.nemesis-phone-btn-vol-down {
+  left: -0.14rem;
+  width: 0.18rem;
+  height: 2.15rem;
+  border-radius: 2px 0 0 2px;
+}
+
+.nemesis-phone-btn-vol-up {
+  top: 9.35rem;
+}
+
+.nemesis-phone-btn-vol-down {
+  top: 11.85rem;
+}
+
+.nemesis-phone-btn-power {
+  top: 10.4rem;
+  right: -0.14rem;
+  width: 0.18rem;
+  height: 3.4rem;
+  border-radius: 0 2px 2px 0;
 }
 
 .fgv-lightbox {

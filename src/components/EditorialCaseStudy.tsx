@@ -41,6 +41,7 @@ type EditorialCaseStudyProps = {
   brief: readonly CaseBrief[];
   blocks: CaseBlock[];
   className?: string;
+  afterBlocks?: ReactNode;
   onStudyArtworkSelect?: (studyId: string, index: number) => void;
 };
 
@@ -103,7 +104,13 @@ function Artwork({ src, alt, width, height, caption, loading, fetchPriority }: C
   );
 }
 
-export function EditorialCaseStudy({ brief, blocks, className, onStudyArtworkSelect }: EditorialCaseStudyProps) {
+export function EditorialCaseStudy({
+  brief,
+  blocks,
+  className,
+  afterBlocks,
+  onStudyArtworkSelect,
+}: EditorialCaseStudyProps) {
   useEffect(() => {
     const id = window.location.hash.replace(/^#/, "");
     if (!id) return;
@@ -303,6 +310,7 @@ export function EditorialCaseStudy({ brief, blocks, className, onStudyArtworkSel
             </Reveal>
           );
         })}
+        {afterBlocks}
       </div>
 
       <footer className="ztd-frame ztd-end">

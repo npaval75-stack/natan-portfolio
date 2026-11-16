@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { ActForTomorrowCaseStudy } from "@/components/ActForTomorrowCaseStudy";
 import { FundamentalsCaseStudy } from "@/components/FundamentalsCaseStudy";
 import { MotinnCaseStudy } from "@/components/MotinnCaseStudy";
+import { NemesisCaseStudy } from "@/components/NemesisCaseStudy";
 import { MeltingPointCaseStudy } from "@/components/MeltingPointCaseStudy";
 import { MockAndProperCaseStudy } from "@/components/MockAndProperCaseStudy";
 import { ProjectView } from "@/components/ProjectView";
@@ -32,6 +33,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const project = getProjectBySlug(slug);
 
   if (!project) notFound();
+
+  if (project.slug === "nemesis") {
+    return (
+      <ProjectView
+        project={project}
+        subtitle="Startup Website / Web Development"
+        hideSummary
+        framed
+      >
+        <NemesisCaseStudy />
+      </ProjectView>
+    );
+  }
 
   if (project.slug === "zero-to-design-booklet") {
     return (

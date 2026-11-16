@@ -3,6 +3,7 @@
 export const PREVIEW_HOLD_MS = 3000;
 export const PREVIEW_CROSSFADE_MS = 520;
 
+const NEMESIS = "/projects/menu-previews/nemesis";
 const ZTD = "/projects/menu-previews/zero-to-design";
 const MOTINN = "/projects/menu-previews/motinn";
 const CC = "/projects/menu-previews/climate-change";
@@ -12,6 +13,13 @@ const MAP = "/projects/menu-previews/mock-and-proper-brand-identity";
 const PL = "/projects/menu-previews/pure-lief";
 
 export const previewSlideshows: Record<string, readonly string[]> = {
+  nemesis: [
+    `${NEMESIS}/page-01.webp`,
+    `${NEMESIS}/page-02.webp`,
+    `${NEMESIS}/page-03.webp`,
+    `${NEMESIS}/page-04.webp`,
+    `${NEMESIS}/page-05.webp`,
+  ],
   "zero-to-design-booklet": [
     `${ZTD}/page-02.webp`,
     `${ZTD}/page-03.webp`,
